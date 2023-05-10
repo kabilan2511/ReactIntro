@@ -1,8 +1,17 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import '../../src/App.css';
+import { addTodo } from "../redux/action";
 
 const TodoInput = () => {
     const [enteredValue,setValue] = useState('');
+    const dispatch = useDispatch();
+    const handleSubmit =()=> {
+      if(enteredValue !== ''){
+        dispatch(addTodo(enteredValue));
+        setValue('');
+      }
+    }
   return (
     <div className="todoInput">
       <h1>TODO</h1>
@@ -15,7 +24,7 @@ const TodoInput = () => {
         }}
         value={enteredValue}
       /> <br/>
-      <button>Add</button>
+      <button onClick={handleSubmit}>Add</button>
     </div>
   );
 };
