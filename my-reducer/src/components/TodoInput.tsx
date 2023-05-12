@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import '../../src/App.css';
-import { addTodo } from "../redux/action";
+// import { addTodo } from "../redux/action";
+import { addTodos } from "../redux/reducer";
 
 const TodoInput = () => {
-    const [enteredValue,setValue] = useState('');
+    const [enteredValue,setValue] = useState<any>('');
+    console.log({enteredValue});
     const dispatch = useDispatch();
     const handleSubmit =()=> {
       if(enteredValue !== ''){
-        dispatch(addTodo(enteredValue));
+        dispatch(addTodos(enteredValue));
         setValue('');
       }
     }

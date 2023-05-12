@@ -1,6 +1,7 @@
 import * as actions from './actionType'
 
 export const addTodo = (text:string)=> {
+    console.log({text})
     return {
         type: actions.ADD_TODO,
         text

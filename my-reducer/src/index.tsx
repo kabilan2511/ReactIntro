@@ -11,12 +11,13 @@ import store from './redux/store';
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
-root.render(
-  <Provider store={store}>
+console.log('asd',store.getState());
+root.render(   
   <React.StrictMode>
+    <Provider store={store}>
     <App />
-  </React.StrictMode>
   </Provider>
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

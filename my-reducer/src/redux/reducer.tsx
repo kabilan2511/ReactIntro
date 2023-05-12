@@ -1,33 +1,25 @@
+import { create } from 'domain';
 import * as actions from './actionType'
+import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = {
-    // todo:[],
-    // completed: [],
-    counter: 0,
-    list: [{ id: 0, text: "Happy Hacking ~v~", completed: false }]
-}
-
-const reducer = (state= initialState, action:any) => {
-    switch (action.type) {
-      case actions.ADD_TODO:
-        return {
-          counter: state.counter + 1,
-          list: [
-            ...state.list,
-            { id: state.counter + 1, text: action.text, completed: false },
-          ],
-        };
-      case actions.REMOVE_TODO:
-        return {
-          ...state,
-          list: state.list.filter((item) => item.id !== action.id),
-        };
-
-      case actions.CLEAR_TODO:
-        return {initialState}
-      default:
-        return state;
+export const todoSlice = createSlice({
+  name : 'todo',
+  initialState: {
+    todos: []
+  },
+  reducers: {
+    addTodos : (state: any,action: any) => {
+      state.todos.push({
+        id: Math.random().toString(36).substr(2, 5),
+        todo: action.payload,
+      })
+    },
+    deleteTodos: (state:any, actions: any) => {
+      state.todos = state.todos.filter((i : any)=> i.id !== actions.payload.id);
     }
-};
+  },
+},
+)
 
-export default reducer;
+export const {addTodos, deleteTodos} = todoSlice.actions;
+export default todoSlice.reducer;
