@@ -6,7 +6,6 @@ import { addTodos } from "../redux/reducer";
 
 const TodoInput = () => {
     const [enteredValue,setValue] = useState<any>('');
-    console.log({enteredValue});
     const dispatch = useDispatch();
     const handleSubmit =()=> {
       if(enteredValue !== ''){

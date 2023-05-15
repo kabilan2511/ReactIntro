@@ -5,14 +5,11 @@ import { useDispatch } from 'react-redux';
 import { deleteTodos } from '../redux/reducer';
 
 
-interface RootState {
-    id: string;
-    todo: any
-}
+//       
    
 const TodoList = () => {
     const  {todos}  = useSelector((state:any)=> state.todo);
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
     console.log({todos});
 
@@ -23,7 +20,11 @@ const TodoList = () => {
             <div> Empty</div>
         ): (
             todos.map((i : any)=> 
-            <div> {i.todo}</div>
+            <div className='aligned'>
+            <div className='textt'> {i.todo}</div>
+            <button className='button' onClick={()=> dispatch(deleteTodos(i))}>X</button>
+            <br/>
+            </div>
             
             )
         )}

@@ -2,20 +2,32 @@ import { create } from 'domain';
 import * as actions from './actionType'
 import { createSlice } from '@reduxjs/toolkit';
 
+
+type Todos = {
+  todos: any;
+}
+
+const initialState : Todos = {
+  todos: []
+}
+
+let count = 0;
+
 export const todoSlice = createSlice({
   name : 'todo',
-  initialState: {
-    todos: []
-  },
+  initialState,
   reducers: {
-    addTodos : (state: any,action: any) => {
+    addTodos : (state : Todos,action: any) => {
       state.todos.push({
-        id: Math.random().toString(36).substr(2, 5),
+        id: count++,
         todo: action.payload,
-      })
+      });
+      console.log('stateadd',state,action)
     },
-    deleteTodos: (state:any, actions: any) => {
+    deleteTodos: (state:any, actions: any) => {      
       state.todos = state.todos.filter((i : any)=> i.id !== actions.payload.id);
+      console.log({state});
+      console.log({actions});
     }
   },
 },
