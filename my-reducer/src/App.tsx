@@ -1,5 +1,6 @@
 import TodoInput from './components/TodoInput';
 import TodoList from './components/todoList';
+import BasicUi  from './components/BasicUI';
 
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
     <div>
       <TodoInput/>
       <TodoList/>
+      <BasicUi/>
     </div>
   );
 }

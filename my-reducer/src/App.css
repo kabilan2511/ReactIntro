@@ -5,6 +5,8 @@
 }
 .todoList {
     text-align: center;
+    display:flex;
+    flex-direction: column;
 }
 .aligned{
     display:flex;
@@ -12,12 +14,13 @@
     justify-content: center;
     border: 1px solid;
     border-color: rgb(236, 20, 74);   
-    /* width:200px; */
+    width:200px;
     padding: 0px 5px;;
-    margin: 20px 540px 20px 540px;
+    /* margin: 20px 540px 20px 540px; */
     box-shadow: 40px;
     border-radius: 20px;
     background-color: bisque;
+    align-self: center;
     
 }
 .textt{
